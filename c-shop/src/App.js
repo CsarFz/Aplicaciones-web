@@ -1,21 +1,31 @@
-import React, { Fragment } from 'react';
-import logo from './logo.svg';
+import React, { Fragment, Component } from 'react';
+// import logo from './logo.svg';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './assets/css/style.css'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Header from './components/Header'
-import Home from './templates/Home'
+import Header from './components/Header';
+import Home from './templates/Home';
+import Login from './templates/Login';
+import SignUp from './templates/SignUp';
+import ShoppingCart from './templates/ShoppingCart';
+import Footer from './components/Footer';
 
-function App() {
-  return (
-    <Router>
-      <Fragment>
-        <Header/>
-        <Route exact path="/" component={Home}></Route>
-      </Fragment>
-    </Router>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <Fragment>
+          <Header/>
+          <Route exact path="/" component={ Home }></Route>
+            <Switch>
+              <Route exact path="/login" component={ Login }></Route>
+              <Route exact path="/signup" component={ SignUp }></Route>
+              <Route exact path="/cart" component={ ShoppingCart }></Route>
+            </Switch>
+          <Footer/>
+        </Fragment>
+      </Router>
+    );
+  }
 }
 
 export default App;
