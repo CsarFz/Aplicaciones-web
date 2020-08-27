@@ -250,6 +250,41 @@ input {
 }
 
 /* --------------
+  Calendar
+------------------*/
+.react-datepicker__header {
+	text-transform: uppercase;
+}
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+	width: 100%;
+	height: calc(1.5em + 1rem + 2px);
+	color: #495057;
+}
+
+.react-datepicker__close-icon:after {
+	background-color: #E9155F;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+	border-radius: 50px;
+    background-color: #E9155F;
+	color: #fff;
+	font-weight: 700;
+}
+
+.react-datepicker__triangle {
+	display: none;
+}
+
+.react-datepicker__close-icon {
+	padding: 0 1.5rem 0 0;
+}
+
+/* --------------
   Other Pages
 ------------------*/
 

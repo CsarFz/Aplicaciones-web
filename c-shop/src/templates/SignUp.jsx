@@ -1,7 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import DatePicker, { registerLocale } from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import es from "date-fns/locale/es";
+
+registerLocale('es', es);
 
 class SignUp extends React.Component {
+    constructor(...props) {
+        super(...props);
+        this.state = {
+            selectedDate: new Date()
+        }
+    }
     render() {
         return (
             <section id="formSignUp">
@@ -37,8 +48,20 @@ class SignUp extends React.Component {
                                                     placeholder="Teléfono" />
                                             </div>
                                             <div className="col-12 col-md-6 px-lg-3 pb-3">
-                                                <input type="text" className="form-control form-control-lg  primaryInput" id="birthday"
-                                                    placeholder="Fecha de nacimiento" />
+                                                <DatePicker className="w-100 px-3 form-control form-control-lg"
+                                                    selected={this.state.selectedDate}
+                                                    onChange={(selectedDate) => this.setState({ selectedDate })}
+                                                    dateFormat={'dd/MMMM/yyyy'}
+                                                    maxDate={new Date()}
+                                                    isClearable
+                                                    showYearDropdown
+                                                    placeholderText="Fecha de nacimiento"
+                                                    locale="es"
+                                                    todayButton="Hoy"
+                                                    disabledKeyboardNavigation
+                                                />
+                                                {/* <input type="text" className="form-control form-control-lg  primaryInput" id="birthday"
+                                                    placeholder="Fecha de nacimiento" /> */}
                                             </div>
                                             <div className="col-12 col-md-6 px-lg-3 pb-3">
                                                 <input type="email" className="form-control form-control-lg  primaryInput" id="email"
