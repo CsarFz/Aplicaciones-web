@@ -19,7 +19,7 @@ class SignUp extends React.Component {
                 <div className="container my-5 py-5">
                     <div className="row d-flex justify-content-center">
                         <div className="col-md-12">
-                            <div className="card pt-5 pb-3 rounded shadow border-0">
+                            <div className="card pt-5 pb-3 border-20 shadow border-0">
                                 <div className="card-body">
                                     <h2 className="card-title text-center">Regístrate</h2>
                                     <form className="px-lg-5 px-2 mt-4">
@@ -50,7 +50,7 @@ class SignUp extends React.Component {
                                             </div>
                                         </div>
                                         <div className="d-flex justify-content-center">
-                                            <button id="login" className="btn btn-cShop my-3 px-4" type="button">Crear cuenta</button>
+                                            <button id="login" className="btn site-btn my-3" type="button">Crear cuenta</button>
                                         </div>
                                     </form>
                                     {/* <div className="message === '' ? 'd-none' : ''" className="form-group d-flex justify-content-center">
@@ -68,8 +68,8 @@ class SignUp extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div >
-            </section >
+                </div>
+            </section>
         )
     }
 }

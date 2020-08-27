@@ -7,9 +7,9 @@ class Footer extends React.Component {
             <section className="footer-section">
                 <div className="container">
                     <div className="footer-logo text-center text-white">
-                        <Link to={'/'}>
-                            <h2>C-Shop</h2>
-                        </Link>
+                        <a href='/'>
+                            <h2 className="text-white">C-Shop</h2>
+                        </a>
                     </div>
                     <div className="row">
                         <div className="col-lg-3 col-sm-6">
