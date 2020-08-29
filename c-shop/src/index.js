@@ -9,6 +9,9 @@ import './assets/css/header.css'
 import './assets/css/home.css'
 import './assets/css/products.css'
 import './assets/css/footer.css'
+import './assets/css/detail.css'
+import './assets/css/cart.css'
+import './assets/js/main'
 
 ReactDOM.render(
   <React.StrictMode>

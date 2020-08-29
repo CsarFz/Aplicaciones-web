@@ -96,20 +96,21 @@ input {
 
 /* buttons */
 
-.site-btn {
-	display: inline-block;
-	border: none;
-	font-size: 14px;
-	font-weight: 600;
-	min-width: 167px;
-	padding: 18px 47px 14px;
-	border-radius: 50px;
-	text-transform: uppercase;
-	background: #E9155F;
-	color: #fff;
+.btn {
 	line-height: normal;
 	cursor: pointer;
-	text-align: center;
+	font-size: 14px;
+	font-weight: 600;
+	text-transform: uppercase;
+	border-radius: 50px;
+}
+
+.site-btn {
+	border: none;
+	min-width: 167px;
+	padding: 18px 47px 14px;
+	background: #E9155F;
+	color: #fff;
 }
 
 .site-btn:hover {
@@ -119,17 +120,35 @@ input {
 }
 
 .btn-danger {
-	display: inline-block;
 	border: none;
-	font-size: 14px;
-	font-weight: 600;
 	min-width: 167px;
 	padding: 18px 47px 14px;
-	border-radius: 50px;
+}
+
+.btn-edit {
+	font-size: 14px;
+	font-weight: 600;
+	padding: 10px 30px;
+	border: 1px solid #858B9D;
+	color: #858B9D;
+}
+
+.btn-edit:hover {
+	color: #FFF;
+	background: #858B9D;
+}
+
+.btn-more {
+	padding: 10px 30px;
 	text-transform: uppercase;
-	line-height: normal;
-	cursor: pointer;
-	text-align: center;
+	border: 1px solid #E9155F;
+	color: #E9155F;
+	padding: 18px 47px 14px;
+}
+
+.btn-more:hover {
+	background: #E9155F;
+	color: #FFF;
 }
 
 .btn-danger:hover {
@@ -138,27 +157,94 @@ input {
 	border: 1px solid #DC3545;
 }
 
-.site-btn.sb-white {
-	background: #fff;
-	color: #111111;
+/* Accordion */
+
+.accordion-area {
+	margin-top: 50px;
+	border-top: 2px solid #e1e1e1;
 }
 
-.site-btn.sb-line {
-	background: transparent;
-	color: #fff;
-	-webkit-box-shadow: inset 0 0 0 1px #fff;
-	box-shadow: inset 0 0 0 1px #fff;
+.accordion-area .panel {
+	border-bottom: 2px solid #e1e1e1;
 }
 
-.site-btn.sb-dark {
-	background: #413a3a;
+.accordion-area .panel-link {
+	background-repeat: no-repeat;
+	background-position: right 10px top 30px;
 }
 
-.site-btn.sb-dark.sb-line {
+.panel-link:after {
+    content: '\f078';
+    font-family: "Font Awesome 5 Free";
+	position: absolute;
+	right: 15px;
+}
+
+.faq-accordion.accordion-area .panel-link,
+.faq-accordion.accordion-area .panel-link.active.collapsed {
+	padding: 17px 100px 17px 20px;
+}
+
+.accordion-area .panel-header .panel-link.collapsed::after {
+	content: '\f078';
+	font-family: "Font Awesome 5 Free";
+	position: absolute;
+	right: 15px;
+}
+
+.accordion-area .panel-link.active:after {
+	/* background-image: url("../img/arrow-up.png"); */
+	content: '\f077';
+	font-family: "Font Awesome 5 Free";
+	right: 15px;
+}
+
+.accordion-area .panel-link.active {
 	background-color: transparent;
-	color: #111111;
-	-webkit-box-shadow: inset 0 0 0 1px #111111;
-	box-shadow: inset 0 0 0 1px #111111;
+}
+
+.accordion-area .panel-link,
+.accordion-area .panel-link.active.collapsed {
+	text-align: left;
+	position: relative;
+	width: 100%;
+	font-size: 14px;
+	font-weight: 700;
+	color: #414141;
+	padding: 0;
+	text-transform: uppercase;
+	line-height: 1;
+	cursor: pointer;
+	border: none;
+	min-height: 69px;
+	background-color: transparent;
+	border-radius: 0;
+}
+
+.accordion-area .panel-body {
+	padding-top: 10px;
+}
+
+.accordion-area .panel-body p {
+	color: #8f8f8f;
+	margin-bottom: 25px;
+	line-height: 1.8;
+}
+
+.accordion-area .panel-body p span {
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #f51167;
+}
+
+.accordion-area .panel-body img {
+	margin-bottom: 25px;
+}
+
+.accordion-area .panel-body h4 {
+	font-size: 18px;
+	margin-bottom: 20px;
 }
 
 /* Preloder */
@@ -397,9 +483,9 @@ input {
 	.user-panel {
 		text-align: center;
 	}
-	.main-menu {
+	/* .main-menu {
 		display: none;
-	}
+	} */
 	.footer-widget ul {
 		margin-right: 25px;
 	}

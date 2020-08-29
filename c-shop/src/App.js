@@ -8,6 +8,7 @@ import Login from './templates/Login';
 import SignUp from './templates/SignUp';
 import Profile from './templates/Profile';
 import Products from './templates/Products';
+import DetailsProduct from './templates/DetailsProduct';
 import ShoppingCart from './templates/ShoppingCart';
 import Footer from './components/Footer';
 
@@ -23,6 +24,7 @@ class App extends Component {
             <Route exact path="/signup" component={ SignUp }></Route>
             <Route exact path="/profile" component={ Profile }></Route>
             <Route exact path="/products" component={ Products }></Route>
+            <Route exact path="/products/:id" component={ DetailsProduct }></Route>
             <Route exact path="/cart" component={ ShoppingCart }></Route>
           </Switch>
           <Footer/>

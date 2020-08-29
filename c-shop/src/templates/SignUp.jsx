@@ -10,7 +10,7 @@ class SignUp extends React.Component {
     constructor(...props) {
         super(...props);
         this.state = {
-            selectedDate: new Date()
+            selectedDate: null
         }
     }
     render() {
@@ -55,6 +55,7 @@ class SignUp extends React.Component {
                                                     maxDate={new Date()}
                                                     isClearable
                                                     showYearDropdown
+                                                    scrollableYearDropdown
                                                     placeholderText="Fecha de nacimiento"
                                                     locale="es"
                                                     todayButton="Hoy"

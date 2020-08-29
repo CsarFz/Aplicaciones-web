@@ -21,10 +21,41 @@ class Products extends Component {
                                 <div className="filter-widget">
                                     <h2 className="fw-title">Categorías</h2>
                                     <ul className="category-menu">
-                                        <li><Link to="#">PS4</Link></li>
-                                        <li><Link to="#">Xbox One</Link></li>
+                                        <li><Link to="#">PS4</Link>
+                                            <ul className="sub-menu">
+                                                <li><a href="/">Videojuegos <span>(2)</span></a></li>
+                                                <li><a href="/">Accesorios<span>(6)</span></a></li>
+                                                <li><a href="/">Hardware<span>(3)</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><Link to="#">Xbox One</Link>
+                                            <ul className="sub-menu">
+                                                <li><a href="/">Videojuegos <span>(3)</span></a></li>
+                                                <li><a href="/">Accesorios<span>(8)</span></a></li>
+                                                <li><a href="/">Hardware<span>(3)</span></a></li>
+                                            </ul>
+                                        </li>
                                         <li><Link to="#">Computación</Link></li>
                                     </ul>
+                                </div>
+                            </div>
+                            <div className="col-lg-9 order-1 order-lg-2 mb-5 mb-lg-0">
+                                <div className="row">
+                                    <div className="col-lg-4 col-sm-6">
+                                        <div className="product-item">
+                                            <div className="pi-pic">
+                                                <div className="tag-sale">Oferta</div>
+                                                <img src="https://dummyimage.com/600x400/000/fff" className="img-fluid" alt="" />
+                                                <div className="pi-links">
+                                                    <a href="#" className="add-card"><span>Añadir</span><i className="fas fa-shopping-cart"></i></a>
+                                                </div>
+                                            </div>
+                                            <div className="pi-text">
+                                                <h6>$135.00</h6>
+                                                <p>Videojuego</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

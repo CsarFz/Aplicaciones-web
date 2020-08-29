@@ -35,15 +35,13 @@ class Login extends React.Component {
                             <div className="card pt-5 pb-3 border-20 shadow border-0">
                                 <div className="card-body">
                                     <h2 className="card-title text-center">Iniciar sesión</h2>
-                                    <form className="px-5 mt-4">
+                                    <form className="px-lg-5 px-md-4 px-3 mt-4">
                                         <div className="form-group row">
-                                            <div className="col-sm-12 px-5">
+                                            <div className="col-sm-12 px-lg-5 pb-3">
                                                 <input type="email" className="form-control form-control-lg  primaryInput" id="email"
                                                     placeholder="Correo electrónico" />
                                             </div>
-                                        </div>
-                                        <div className="form-group row pt-2">
-                                            <div className="col-sm-12 px-5">
+                                            <div className="col-sm-12 px-lg-5">
                                                 <input type="password" className="form-control form-control-lg  primaryInput" id="password"
                                                     placeholder="Contraseña" />
                                             </div>
@@ -58,7 +56,7 @@ class Login extends React.Component {
 
                                     <div className="row">
                                         <div className="col-md-12 text-center text-muted">
-                                            <p><Link onClick={this.toggleModal.bind(this)} className="link-cShop">¿Olvidaste tu contraseña?</Link></p>
+                                            <p><Link to="" onClick={this.toggleModal.bind(this)} className="link-cShop">¿Olvidaste tu contraseña?</Link></p>
                                             <p className="px-4">
                                                 ¿No tienes una cuenta C-Shop?
                                                 <Link to={'/signup'} className="link-cShop"> Regístrate</Link>
@@ -90,8 +88,14 @@ class Login extends React.Component {
                                         placeholder="Correo electrónico" />
                             </div>
                             <div className="col-12 mt-3">
-                                <button className="btn site-btn mr-2" type="submit">Enviar</button>
-                                <button className="btn btn-danger ml-2" onClick={this.toggleModal.bind(this)}>Cancelar</button>
+                                <div className="row">
+                                    <div className="col-12 col-md-6 mb-3">
+                                        <button className="btn site-btn w-100" type="submit">Enviar</button>
+                                    </div>
+                                    <div className="col-12 col-md-6">
+                                        <button className="btn btn-danger w-100" onClick={this.toggleModal.bind(this)}>Cancelar</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </Modal.Body>

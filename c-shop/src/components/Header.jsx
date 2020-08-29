@@ -11,9 +11,9 @@ class Header extends React.Component {
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-lg-2 text-center">
-                                <a href='/' className="site-logo">
+                                <Link to='/' className="site-logo">
                                     <h2>C-Shop</h2>
-                                </a>
+                                </Link>
                             </div>
                             <div className="col-xl-6 col-lg-5">
                                 <form className="header-search-form">
@@ -32,7 +32,7 @@ class Header extends React.Component {
                                     <div className="up-item">
                                         <ul className="main-menu">
                                             <li><Link to="/profile"><i className="fas fa-user mr-2 fa-lg"></i> Perfil</Link>
-                                                <ul className="sub-menu">
+                                                <ul className="sub-menu shadow">
                                                     <li><Link to="/profile">Mi perfil</Link></li>
                                                     <li><Link to="/login">Cerrar Sesión</Link></li>
                                                 </ul>
@@ -56,15 +56,9 @@ class Header extends React.Component {
                     <div className="container">
                         <ul className="main-menu">
                             <li><Link to='/'>Inicio</Link></li>
-                            <li><Link to='/products'>Xbox One</Link></li>
-                            <li><Link to='/products'>PS4</Link></li>
                             {/* <li><a href="#">- <span className="new">New</span></a></li> */}
-                            <li><Link to='/products'>Computación</Link>
-                                <ul className="sub-menu">
-                                    <li><Link to="/products">Memorias RAM</Link></li>
-                                    <li><Link to="/products">Tarjetas gráficas</Link></li>
-                                </ul>
-                            </li>
+                            <li><a href='#products'>Productos</a></li>
+                            <li><Link to='#'>Contacto</Link></li>
                         </ul>
                     </div>
                 </nav>
@@ -79,7 +73,12 @@ class Header extends React.Component {
                                 </Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link eventKey="2" as={Link} to="/">
+                                <Nav>
+                                    <a href="#products" className="nav-link">Productos</a>
+                                </Nav>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link eventKey="2" as={Link} to="/contact">
                                 Contacto
                                 </Nav.Link>
                             </Nav.Item>

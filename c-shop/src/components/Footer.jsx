@@ -25,6 +25,7 @@ class Footer extends React.Component {
                                 <ul>
                                     <li><Link to={'/login'}>Iniciar sesión</Link></li>
                                     <li><Link to={'/signup'}>Crear cuenta</Link></li>
+                                    <li><Link to={'/contact'}>Contacto</Link></li>
                                 </ul>
                             </div>
                         </div>
