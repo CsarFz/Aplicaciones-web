@@ -6,7 +6,7 @@ class Home extends React.Component {
         return (
             <>
                 <section className="hero-section">
-                    <img src="https://dummyimage.com/1920x1800/000/fff" className="img-fluid" alt="logo" />
+                    <img src="https://dummyimage.com/1920x1800/000/fff" className="img-fluid mx-auto d-flex" alt="logo" />
                 </section>
 
                 <section className="product-filter-section" id="products">
@@ -46,7 +46,7 @@ class Home extends React.Component {
                                                     <img src="https://dummyimage.com/600x600/000/fff" className="img-fluid" alt="" />
                                                 </a>
                                                 <div className="pi-links">
-                                                    <a href="#" className="add-card"><span>Añadir</span><i className="fas fa-shopping-cart"></i></a>
+                                                    <a href="/" className="add-card"><span>Añadir</span><i className="fas fa-shopping-cart"></i></a>
                                                 </div>
                                             </div>
                                             <div className="pi-text">

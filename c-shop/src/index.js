@@ -12,6 +12,7 @@ import './assets/css/footer.css'
 import './assets/css/detail.css'
 import './assets/css/cart.css'
 import './assets/js/main'
+import 'bootstrap/dist/js/bootstrap.bundle'
 
 ReactDOM.render(
   <React.StrictMode>

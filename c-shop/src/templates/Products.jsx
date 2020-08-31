@@ -7,10 +7,10 @@ class Products extends Component {
             <div>
                 <div className="page-top-info">
                     <div className="container">
-                        <h4>Página de categoría</h4>
+                        <h4>Productos</h4>
                         <div className="site-pagination">
                             <a href="/" className="mx-1">Inicio</a>/
-                            <a href="/" className="mx-1">Computo</a>/
+                            <a href="/" className="mx-1">Productos</a>/
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,9 @@ class Products extends Component {
                                         <div className="product-item">
                                             <div className="pi-pic">
                                                 <div className="tag-sale">Oferta</div>
-                                                <img src="https://dummyimage.com/600x400/000/fff" className="img-fluid" alt="" />
+                                                <Link to="/products/2">
+                                                    <img src="https://dummyimage.com/600x400/000/fff" className="img-fluid" alt="" />
+                                                </Link>
                                                 <div className="pi-links">
                                                     <a href="#" className="add-card"><span>Añadir</span><i className="fas fa-shopping-cart"></i></a>
                                                 </div>

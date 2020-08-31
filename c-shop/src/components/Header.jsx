@@ -57,7 +57,7 @@ class Header extends React.Component {
                         <ul className="main-menu">
                             <li><Link to='/'>Inicio</Link></li>
                             {/* <li><a href="#">- <span className="new">New</span></a></li> */}
-                            <li><a href='#products'>Productos</a></li>
+                            <li><a href='/products'>Productos</a></li>
                             <li><Link to='#'>Contacto</Link></li>
                         </ul>
                     </div>
@@ -74,7 +74,7 @@ class Header extends React.Component {
                             </Nav.Item>
                             <Nav.Item>
                                 <Nav>
-                                    <a href="#products" className="nav-link">Productos</a>
+                                    <a href="/products" className="nav-link">Productos</a>
                                 </Nav>
                             </Nav.Item>
                             <Nav.Item>

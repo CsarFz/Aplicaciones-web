@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class ShoppingCart extends Component {
+    
     render() {
         return (
             <section className="cart-section spad">
