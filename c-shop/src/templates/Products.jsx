@@ -49,7 +49,7 @@ class Products extends Component {
                                                     <img src="https://dummyimage.com/600x400/000/fff" className="img-fluid" alt="" />
                                                 </Link>
                                                 <div className="pi-links">
-                                                    <a href="#" className="add-card"><span>Añadir</span><i className="fas fa-shopping-cart"></i></a>
+                                                    <a href="/" className="add-card"><span>Añadir</span><i className="fas fa-shopping-cart"></i></a>
                                                 </div>
                                             </div>
                                             <div className="pi-text">

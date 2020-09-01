@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class ShoppingCart extends Component {
     
@@ -31,7 +32,7 @@ class ShoppingCart extends Component {
                                                 <td className="quy-col">
                                                     <div className="quantity">
                                                         <div className="pro-qty">
-                                                            <input type="text" value="1" />
+                                                            <input type="text" value="1" onChange={() => console.log('hola')} />
                                                         </div>
                                                     </div>
                                                 </td>
@@ -50,8 +51,8 @@ class ShoppingCart extends Component {
                                 <input type="text" placeholder="Enter promo code" />
                                 <button type="submit">Enviar</button>
                             </form>
-                            <a href="" className="btn site-btn">Realizar compra</a>
-                            <a href="" className="btn btn-continue site-btn">Continuar comprando</a>
+                            <Link to="/checkout" className="btn site-btn">Realizar compra</Link>
+                            <Link to="/products" className="btn btn-continue site-btn">Continuar comprando</Link>
                         </div>
                     </div>
                 </div>

@@ -19,7 +19,7 @@ class DetailsProduct extends Component {
             <section className="product-section">
                 <div className="container">
                     <div className="back-link">
-                        <Link to="/"> &lt;&lt; Regresar</Link>
+                        <Link to="#" onClick={this.props.history.goBack}> <i className="fas fa-chevron-left"></i> Regresar</Link>
                     </div>
                     <div className="row">
                         <div className="col-lg-6">
@@ -55,7 +55,7 @@ class DetailsProduct extends Component {
                                     <input type="text" value={this.state.quantity} onChange={this.handleChange} maxLength="1" />
                                 </div>
                             </div>
-                            <a href="#" className="btn site-btn">Añadir al carrito</a>
+                            <a href="/product" className="btn site-btn">Añadir al carrito</a>
                             <div id="accordion" className="accordion-area">
                                 <div className="panel">
                                     <div className="panel-header" id="headingOne">

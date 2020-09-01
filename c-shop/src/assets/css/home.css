@@ -67,3 +67,40 @@
 	background-color: transparent;
 	border: 1px solid #E9155F;
 }
+
+#backToTop {
+	display: inline-block;
+	background-color: #E9155F;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	border-radius: 4px;
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	transition: background-color .3s,
+		opacity .5s, visibility .5s;
+	opacity: 0;
+	border-radius: 50px;
+	visibility: hidden;
+	color: #fff;
+}
+
+#backToTop::after {
+	content: "\f077";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 600;
+	font-size: 2em;
+	line-height: 50px;
+}
+
+#backToTop:hover {
+	cursor: pointer;
+	background-color: #FFF;
+	color: #141726;
+}
+
+#backToTop.show {
+	opacity: 1;
+	visibility: visible;
+}

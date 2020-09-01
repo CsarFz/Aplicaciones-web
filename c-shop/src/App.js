@@ -10,6 +10,7 @@ import Profile from './templates/Profile';
 import Products from './templates/Products';
 import DetailsProduct from './templates/DetailsProduct';
 import ShoppingCart from './templates/ShoppingCart';
+import Checkout from './templates/Checkout';
 import Footer from './components/Footer';
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
             <Route exact path="/products" component={ Products }></Route>
             <Route exact path="/products/:id" component={ DetailsProduct }></Route>
             <Route exact path="/cart" component={ ShoppingCart }></Route>
+            <Route exact path="/checkout" component={ Checkout }></Route>
           </Switch>
           <Footer/>
         </Fragment>
