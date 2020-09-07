@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class Footer extends React.Component {
     render() {
         return (
-            <section className="footer-section">
+            <footer className="footer-section">
                 <div className="container">
                     <div className="footer-logo text-center text-white">
                         <a href='/'>
@@ -82,7 +82,7 @@ class Footer extends React.Component {
 
                     </div>
                 </div> */}
-            </section>
+            </footer>
         )
     }
 }

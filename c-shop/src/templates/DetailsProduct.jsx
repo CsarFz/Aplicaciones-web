@@ -55,7 +55,7 @@ class DetailsProduct extends Component {
                                     <input type="text" value={this.state.quantity} onChange={this.handleChange} maxLength="1" />
                                 </div>
                             </div>
-                            <a href="/product" className="btn site-btn">Añadir al carrito</a>
+                            <a href="/cart" className="btn site-btn">Añadir al carrito</a>
                             <div id="accordion" className="accordion-area">
                                 <div className="panel">
                                     <div className="panel-header" id="headingOne">

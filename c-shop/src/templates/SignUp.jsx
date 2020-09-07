@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import es from "date-fns/locale/es";
+import api from '../assets/js/api';
+import $ from 'jquery';
 
 registerLocale('es', es);
 
@@ -41,38 +43,39 @@ class SignUp extends React.Component {
         this.state = {
             date: null,
             name: null,
-            surnames: null,
+            lastName: null,
+            motherLastName: null,
             email: null,
             password: null,
             phone: null,
             formErrors: {
                 name: "",
-                surnames: "",
+                lastName: "",
+                motherLastName: "",
                 email: "",
                 password: "",
                 phone: "",
                 date: ""
             }
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
 
+        const { email, password, name, lastName, motherLastName, phone } = this.state;
+
         if (formValid(this.state)) {
-            console.log(`
-                --SUBMITTING--
-                First Name: ${this.state.name}
-                Last Name: ${this.state.surnames}
-                Email: ${this.state.email}
-                Password: ${this.state.password}
-              `);
+            api.creatAccount(email, password, name, lastName, motherLastName, phone)
         } else {
-            console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+            $('#modalSuccess h3').text('Error');
+            $('#modalSuccess .message').text('Ocurrió un error al validar los campos.');
+            $('#modalSuccess').modal();
         }
     };
 
-    handleChange = e => {
+    handleChange = (e) => {
         e.preventDefault();
         const { name, value } = e.target;
         let formErrors = { ...this.state.formErrors };
@@ -82,8 +85,12 @@ class SignUp extends React.Component {
                 formErrors.name =
                     value.length < 5 ? 'Mínimo 5 caracteres requeridos' : '';
                 break;
-            case "surnames":
-                formErrors.surnames =
+            case "lastName":
+                formErrors.lastName =
+                    value.length < 5 ? 'Mínimo 5 caracteres requeridos' : '';
+                break;
+            case "motherLastName":
+                formErrors.motherLastName =
                     value.length < 5 ? 'Mínimo 5 caracteres requeridos' : '';
                 break;
             case "email":
@@ -102,8 +109,7 @@ class SignUp extends React.Component {
             default:
                 break;
         }
-        console.log(phoneRegex.test(value));
-        this.setState({ formErrors, [name]: value }, () => console.log(this.state));
+        this.setState({ formErrors, [name]: value }); // () => console.log(this.state)
     };
 
     render() {
@@ -121,8 +127,11 @@ class SignUp extends React.Component {
                                         {formErrors.name.length > 0 && (
                                             <p className="errorMessage">{formErrors.name}</p>
                                         )}
-                                        {formErrors.surnames.length > 0 && (
-                                            <p className="errorMessage">{formErrors.surnames}</p>
+                                        {formErrors.lastName.length > 0 && (
+                                            <p className="errorMessage">{formErrors.lastName}</p>
+                                        )}
+                                        {formErrors.motherLastName.length > 0 && (
+                                            <p className="errorMessage">{formErrors.motherLastName}</p>
                                         )}
                                         {formErrors.phone.length > 0 && (
                                             <p className="errorMessage">{formErrors.phone}</p>
@@ -134,15 +143,19 @@ class SignUp extends React.Component {
                                             <p className="errorMessage">{formErrors.password}</p>
                                         )}
                                     </div>
-                                    <form className="px-lg-5 px-2 mt-4" onSubmit={this.handleSubmit} noValidate>
+                                    <form className="px-lg-5 px-2 mt-4" noValidate>
                                         <div className="row">
-                                            <div className="col-12 col-md-6 px-lg-3 pb-3">
+                                            <div className="col-12 col-md-4 px-lg-3 pb-3">
                                                 <input type="text" className={`form-control form-control-lg  primaryInput ${formErrors.name.length > 0 ? "error" : ''}`} name="name"
                                                     placeholder="Nombre(s)" onChange={this.handleChange} />
                                             </div>
-                                            <div className="col-12 col-md-6 px-lg-3 pb-3">
-                                                <input type="text" className={`form-control form-control-lg  primaryInput ${formErrors.surnames.length > 0 ? "error" : ''}`} name="surnames"
-                                                    placeholder="Apellidos" onChange={this.handleChange} />
+                                            <div className="col-12 col-md-4 px-lg-3 pb-3">
+                                                <input type="text" className={`form-control form-control-lg  primaryInput ${formErrors.lastName.length > 0 ? "error" : ''}`} name="lastName"
+                                                    placeholder="Apellido paterno" onChange={this.handleChange} />
+                                            </div>
+                                            <div className="col-12 col-md-4 px-lg-3 pb-3">
+                                                <input type="text" className={`form-control form-control-lg  primaryInput ${formErrors.motherLastName.length > 0 ? "error" : ''}`} name="motherLastName"
+                                                    placeholder="Apellido materno" onChange={this.handleChange} />
                                             </div>
                                             <div className="col-12 col-md-6 px-lg-3 pb-3">
                                                 <input type="tel" className={`form-control form-control-lg  primaryInput ${formErrors.phone.length > 0 ? "error" : ''}`} name="phone"
@@ -173,7 +186,7 @@ class SignUp extends React.Component {
                                             </div>
                                         </div>
                                         <div className="d-flex justify-content-center">
-                                            <button id="login" className="btn site-btn my-3" type="submit">Crear cuenta</button>
+                                            <button id="signup" className="btn site-btn my-3" onClick={this.handleSubmit} type="submit">Crear cuenta</button>
                                         </div>
                                     </form>
                                     <div className="row">
@@ -189,7 +202,26 @@ class SignUp extends React.Component {
                         </div>
                     </div>
                 </div>
-            </section>
+                <div className="modal fade" id="modalSuccess" tabIndex="-1" role="dialog" aria-labelledby="modalSuccessTitle" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered" role="document">
+                        <div className="modal-content">
+                            <div className="modal-body">
+                                <div className="container">
+                                    <div className="row text-center">
+                                        <div className="col-12 pt-4">
+                                            <h3 className="title-modal">Registro exitoso</h3>
+                                        </div>
+                                        <div className="col-12 py-3">
+                                            <p className="message">Su cuenta ha sido creada exitosamente</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section >
+
         )
     }
 }

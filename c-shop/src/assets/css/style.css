@@ -101,7 +101,7 @@ input.error,
 input.error:focus {
 	border: 1px solid #dc3545;
 }
-  
+
 .errorMessage {
 	color: #dc3545;
 	font-size: 0.75em;
@@ -126,6 +126,42 @@ input.error:focus {
 	padding: 18px 47px 14px;
 	background: #E9155F;
 	color: #fff;
+}
+
+.site-btn-animated {
+	z-index: 1;
+	overflow: hidden;
+	background: transparent;
+	position: relative;
+	padding: 18px 47px 14px;
+	font-size: 1em;
+	letter-spacing: 2px;
+	transition: 0.2s ease;
+	font-weight: bold;
+	margin: 5px 0px;
+	border: 3px solid #E9155F;
+}
+
+.site-btn-animated::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0%;
+	height: 100%;
+	background: #E9155F;
+	z-index: -1;
+	transition: 0.2s ease;
+}
+
+.site-btn-animated:hover {
+	color: #FFF;
+	background: #E9155F;
+	transition: 0.2s ease;
+}
+
+.site-btn-animated:hover::before {
+	width: 100%;
 }
 
 .site-btn:hover {
@@ -189,8 +225,8 @@ input.error:focus {
 }
 
 .panel-link:after {
-    content: '\f078';
-    font-family: "Font Awesome 5 Free";
+	content: '\f078';
+	font-family: "Font Awesome 5 Free";
 	position: absolute;
 	right: 15px;
 }
@@ -294,12 +330,14 @@ input.error:focus {
 		border: 4px solid #f44336;
 		border-left-color: transparent;
 	}
+
 	50% {
 		-webkit-transform: rotate(180deg);
 		transform: rotate(180deg);
 		border: 4px solid #673ab7;
 		border-left-color: transparent;
 	}
+
 	100% {
 		-webkit-transform: rotate(360deg);
 		transform: rotate(360deg);
@@ -314,11 +352,13 @@ input.error:focus {
 		border: 4px solid #f44336;
 		border-left-color: transparent;
 	}
+
 	50% {
 		-webkit-transform: rotate(180deg);
 		border: 4px solid #673ab7;
 		border-left-color: transparent;
 	}
+
 	100% {
 		-webkit-transform: rotate(360deg);
 		border: 4px solid #f44336;
@@ -371,7 +411,7 @@ input.error:focus {
 .react-datepicker__day--selected,
 .react-datepicker__day--keyboard-selected {
 	border-radius: 50px;
-    background-color: #E9155F;
+	background-color: #E9155F;
 	color: #fff;
 	font-weight: 700;
 }
@@ -415,7 +455,7 @@ input.error:focus {
   Login & Sign Up
 ---------------------*/
 .link-cShop {
-    color: #E9155F;
+	color: #E9155F;
 }
 
 .link-cShop:hover {
@@ -450,6 +490,7 @@ input.error:focus {
 	.footer-widget ul {
 		margin-right: 5px;
 	}
+
 	.social-links a {
 		margin-right: 20px;
 	}
@@ -461,21 +502,27 @@ input.error:focus {
 	.site-logo {
 		margin-bottom: 20px;
 	}
+
 	.header-search-form {
 		margin-bottom: 15px;
 	}
+
 	.user-panel {
 		text-align: center;
 	}
+
 	.main-menu {
 		text-align: center;
 	}
+
 	.sub-menu {
 		text-align: left;
 	}
+
 	.main-menu li a {
 		margin-right: 30px;
 	}
+
 	.map {
 		position: relative;
 		width: 100%;
@@ -491,18 +538,22 @@ input.error:focus {
 	.site-logo {
 		margin-bottom: 20px;
 	}
+
 	.header-search-form {
 		margin-bottom: 15px;
 	}
+
 	.user-panel {
 		text-align: center;
 	}
+
 	/* .main-menu {
 		display: none;
 	} */
 	.footer-widget ul {
 		margin-right: 25px;
 	}
+
 	.map {
 		position: relative;
 		width: 100%;

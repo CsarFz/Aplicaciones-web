@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 class ShoppingCart extends Component {
     
     render() {
+        const isAuthenticated = localStorage.getItem('user');
+
         return (
             <section className="cart-section spad">
                 <div className="container">
@@ -51,7 +53,7 @@ class ShoppingCart extends Component {
                                 <input type="text" placeholder="Enter promo code" />
                                 <button type="submit">Enviar</button>
                             </form>
-                            <Link to="/checkout" className="btn site-btn">Realizar compra</Link>
+                            <Link to={isAuthenticated ? "/checkout" : '/login'} className="btn site-btn">Realizar compra</Link>
                             <Link to="/products" className="btn btn-continue site-btn">Continuar comprando</Link>
                         </div>
                     </div>

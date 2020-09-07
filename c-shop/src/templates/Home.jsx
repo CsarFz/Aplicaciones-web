@@ -4,7 +4,7 @@ class Home extends React.Component {
     render() {
         return (
             <>
-                <a href="/#" id="backToTop"> </a>
+                <a href="/#" id="backToTop" className="shadow-lg"> </a>
                 <section className="hero-section">
                     <img src="https://dummyimage.com/1920x1800/000/fff" className="img-fluid mx-auto d-flex" alt="logo" />
                 </section>
