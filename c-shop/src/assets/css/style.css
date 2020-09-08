@@ -461,6 +461,10 @@ input.error:focus {
 	color: #141726;
 }
 
+.site-pagination a:hover {
+	color: #E9155F;
+}
+
 /* ----------------
   Login & Sign Up
 ---------------------*/

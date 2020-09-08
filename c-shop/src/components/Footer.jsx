@@ -1,35 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class Footer extends React.Component {
-    render() {
-        return (
-            <footer className="footer-section">
-                <div className="container">
-                    <div className="footer-logo text-center text-white">
-                        <a href='/'>
-                            <h2 className="text-white">C-Shop</h2>
-                        </a>
+const Footer = () => {
+    return (
+        <footer className="footer-section">
+            <div className="container">
+                <div className="footer-logo text-center text-white">
+                    <a href='/'>
+                        <h2 className="text-white">C-Shop</h2>
+                    </a>
+                </div>
+                <div className="row">
+                    <div className="col-lg-3 col-sm-6">
+                        <div className="footer-widget about-widget">
+                            <h2>Acerca de</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas ducimus, quae aliquam sequi deleniti itaque error ipsum eligendi est consequuntur, molestiae ut nostrum labore vero earum odit architecto natus porro?</p>
+                            <img src="img/cards.png" alt="" />
+                        </div>
                     </div>
-                    <div className="row">
-                        <div className="col-lg-3 col-sm-6">
-                            <div className="footer-widget about-widget">
-                                <h2>Acerca de</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas ducimus, quae aliquam sequi deleniti itaque error ipsum eligendi est consequuntur, molestiae ut nostrum labore vero earum odit architecto natus porro?</p>
-                                <img src="img/cards.png" alt="" />
-                            </div>
+                    <div className="col-lg-3 col-sm-6">
+                        <div className="footer-widget about-widget">
+                            <h2>Páginas</h2>
+                            <ul>
+                                <li><Link to={'/login'}>Iniciar sesión</Link></li>
+                                <li><Link to={'/signup'}>Crear cuenta</Link></li>
+                                <li><Link to={'/contact'}>Contacto</Link></li>
+                            </ul>
                         </div>
-                        <div className="col-lg-3 col-sm-6">
-                            <div className="footer-widget about-widget">
-                                <h2>Páginas</h2>
-                                <ul>
-                                    <li><Link to={'/login'}>Iniciar sesión</Link></li>
-                                    <li><Link to={'/signup'}>Crear cuenta</Link></li>
-                                    <li><Link to={'/contact'}>Contacto</Link></li>
-                                </ul>
-                            </div>
-                        </div>
-                        {/* <div className="col-lg-3 col-sm-6">
+                    </div>
+                    {/* <div className="col-lg-3 col-sm-6">
                             <div className="footer-widget about-widget">
                                 <h2>Questions</h2>
                                 <div className="fw-latest-post-widget">
@@ -73,16 +72,15 @@ class Footer extends React.Component {
                                 </div>
                             </div>
                         </div> */}
-                    </div>
                 </div>
-                <div className="social-links-warp">
-                    <div className="container">
-                        <p className="text-white text-center m-0"> &copy; 2020 Proyecto de desarrollo web ITESM CEM</p>
-                    </div>
+            </div>
+            <div className="social-links-warp">
+                <div className="container">
+                    <p className="text-white text-center m-0"> &copy; 2020 Proyecto de desarrollo web ITESM CEM</p>
                 </div>
-            </footer>
-        )
-    }
+            </div>
+        </footer>
+    )
 }
 
 export default Footer;
