@@ -37,11 +37,11 @@ const formValid = (errors, values) => {
     });
 
     if (!validErrors) {
-        toast.error('Hay errores sin resolver.', { position: toast.POSITION.TOP_RIGHT, draggable: false, autoClose: 3000 });
+        toast.error('Hay errores sin resolver.');
     }
 
     if (!validValues) {
-        toast.error('Algunos campos están vacíos.', { position: toast.POSITION.TOP_RIGHT, draggable: false, autoClose: 3000 });
+        toast.error('Algunos campos están vacíos.');
     }
 
     if (validErrors && validValues) { return true; } else { return; }

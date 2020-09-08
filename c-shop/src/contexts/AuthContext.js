@@ -33,7 +33,6 @@ const AuthContextProvider = (props) => {
             .then((response) => {
                 toast('Su cuenta ha sido creada exitosamente', {
                     className: 'success-toast',
-                    position: toast.POSITION.TOP_RIGHT,
                     draggable: false,
                     autoClose: 3000,
                     progress: 0,
@@ -60,30 +59,26 @@ const AuthContextProvider = (props) => {
                 .then((res) => res.json())
                 .catch((error) => console.error("Error:", error))
                 .then((response) => {
-                    if (response.login !== 'fail') {
-                        toast('Ha iniciado sesión exitosamente.', {
-                            className: 'success-toast',
-                            position: toast.POSITION.TOP_RIGHT,
-                            draggable: false,
-                            autoClose: 3000,
-                            progress: 0,
-                            hideProgressBar: true
-                        });
-                        localStorage.setItem('user', JSON.stringify(response));
-                        setIsLoggedIn(true);
-
-                        location.history.push('/');
+                    if (response !== undefined) {
+                        if (response.login !== 'fail') {
+                            toast('Ha iniciado sesión exitosamente.', {
+                                className: 'success-toast',
+                                autoClose: 3000,
+                                progress: 0,
+                                hideProgressBar: true
+                            });
+                            localStorage.setItem('user', JSON.stringify(response));
+                            setIsLoggedIn(true);
+                            location.history.push('/');
+                        } else {
+                            toast.error('Usuario o contraseña inválidos.');
+                        }
                     } else {
-                        toast.error('Usuario o contraseña inválidos.', {
-                            position: toast.POSITION.TOP_RIGHT,
-                            draggable: false,
-                            autoClose: 5000,
-                        });
+                        toast.error('Error en el servidor');
                     }
                 });
         } else {
             toast.warn('Los campos están vacíos.', {
-                position: toast.POSITION.TOP_RIGHT,
                 draggable: false,
                 autoClose: 5000,
             });

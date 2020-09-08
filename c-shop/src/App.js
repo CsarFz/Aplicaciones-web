@@ -41,7 +41,7 @@ export default function App() {
             </Route>
           </Switch>
           <Footer />
-          <ToastContainer/>
+          <ToastContainer position={"top-right"} limit={4}/>
         </Fragment>
       </Router>
     </Providers>
