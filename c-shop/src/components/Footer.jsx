@@ -75,13 +75,11 @@ class Footer extends React.Component {
                         </div> */}
                     </div>
                 </div>
-                {/* <div className="social-links-warp">
+                <div className="social-links-warp">
                     <div className="container">
-
-                        <p className="text-white text-center"> &copy; 2020</p>
-
+                        <p className="text-white text-center m-0"> &copy; 2020 Proyecto de desarrollo web ITESM CEM</p>
                     </div>
-                </div> */}
+                </div>
             </footer>
         )
     }

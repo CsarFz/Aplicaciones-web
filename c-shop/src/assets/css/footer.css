@@ -76,3 +76,8 @@
 	top: 6px;
 	background: #ec105a;
 }
+
+.social-links-warp {
+	border-top: 2px solid #EC105A;
+	padding: 30px 0;
+}
