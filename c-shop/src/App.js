@@ -14,7 +14,8 @@ import Checkout from './templates/Checkout';
 import NotFound from './templates/NotFound';
 import Footer from './components/Footer';
 
-import Providers from './providers';
+import Providers from './contexts';
+import { ToastContainer } from 'react-toastify';
 
 export default function App() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
             </Route>
           </Switch>
           <Footer />
+          <ToastContainer/>
         </Fragment>
       </Router>
     </Providers>

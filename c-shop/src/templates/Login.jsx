@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Modal } from 'react-bootstrap';
-import { context } from '../providers'
+import { context } from '../contexts';
 
 const Login = (props) => {
     const { handleSignIn } = useContext(context.auth);
@@ -24,11 +24,11 @@ const Login = (props) => {
                                     </div>
                                     <div className="col-sm-12 px-lg-5">
                                         <input type="password" className="form-control form-control-lg  primaryInput" id="password" name="password"
-                                            placeholder="Contraseña" onChange={(e) => {setPassword(e.target.value)}} />
+                                            placeholder="Contraseña" onChange={(e) => { setPassword(e.target.value) }} />
                                     </div>
                                 </div>
                                 <div className="form-group d-flex justify-content-center">
-                                    <button id="login" className="btn site-btn my-3" onClick={() => { handleSignIn(email, password, props);  }}>Iniciar sesión</button>
+                                    <button id="login" className="btn site-btn my-3" onClick={() => { handleSignIn(email, password, props); }}>Iniciar sesión</button>
                                 </div>
 
                                 <div className="row">
@@ -77,24 +77,6 @@ const Login = (props) => {
                     </div>
                 </Modal.Body>
             </Modal>
-            <div className="modal fade" id="modalSuccessLogin" tabIndex="-1" role="dialog" aria-labelledby="modalSuccessLoginTitle" aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered" role="document">
-                    <div className="modal-content">
-                        <div className="modal-body">
-                            <div className="container">
-                                <div className="row text-center">
-                                    <div className="col-12 pt-4">
-                                        <h3 className="title-modal">Inicio de sesión exitoso</h3>
-                                    </div>
-                                    <div className="col-12 py-3">
-                                        <p className="message">Ha iniciado sesión exitosamente</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
     )
 }

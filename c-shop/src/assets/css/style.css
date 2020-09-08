@@ -208,6 +208,16 @@ input.error:focus {
 	border: 1px solid #DC3545;
 }
 
+/* Toast */
+.success-toast {
+	background-color: #E9155F;
+	color: #FFF;
+}
+
+.Toastify__toast-body {
+	font-family: 'Josefin Sans';
+}
+
 /* Accordion */
 
 .accordion-area {

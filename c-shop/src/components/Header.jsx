@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom'
 import { Navbar, Nav } from 'react-bootstrap'
-import { context } from '../providers'
+import { context } from '../contexts'
 
 const Header = (props) => {
     const { isLoggedIn, handleSignOut } = useContext(context.auth);
@@ -58,7 +58,7 @@ const Header = (props) => {
                     <ul className="main-menu">
                         <li><Link to='/'>Inicio</Link></li>
                         {/* <li><a href="#">- <span className="new">New</span></a></li> */}
-                        <li><a href='/products'>Productos</a></li>
+                        <li><Link to='/products'>Productos</Link></li>
                         <li><Link to='#'>Contacto</Link></li>
                     </ul>
                 </div>
