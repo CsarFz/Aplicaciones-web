@@ -76,7 +76,7 @@ const Footer = () => {
             </div>
             <div className="social-links-warp">
                 <div className="container">
-                    <p className="text-white text-center m-0"> &copy; 2020 Proyecto de desarrollo web ITESM CEM</p>
+                    <p className="text-white text-center m-0"> &copy; 2020 Proyecto de desarrollo de aplicaciones web ITESM CEM</p>
                 </div>
             </div>
         </footer>
