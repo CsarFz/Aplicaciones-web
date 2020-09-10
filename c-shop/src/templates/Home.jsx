@@ -1,12 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, {Navigation, Pagination, Autoplay } from 'swiper'
+import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper'
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/components/effect-coverflow/effect-coverflow.less';
+import Loader from 'react-loader-spinner';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const Home = (props) => {
+    const [isLoading, setLoading] = useState(false);
+    const [products, setProducts] = useState([]);
+
+    const getProducts = async () => {
+        setLoading(true)
+        await fetch('https://fakestoreapi.com/products?limit=10', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+            },
+        })
+            .then((res) => res.json())
+            .catch((error) => console.error("Error:", error))
+            .then((response) => {
+                setProducts(response);
+                console.log(response);
+                setLoading(false);
+            });
+    }
+
+    useEffect(() => {
+        getProducts();
+    }, []);
+
     return (
         <>
             <a href="/#" id="backToTop" className="shadow-lg"> </a>
@@ -47,43 +73,41 @@ const Home = (props) => {
                             <a className="nav-link" id="pills-pc-tab" data-toggle="pill" href="#pills-pc" role="tab" aria-controls="pills-pc" aria-selected="false">PC</a>
                         </li>
                     </ul>
+                    { isLoading && (
+                        <div className="row">
+                            <div className="col-12 text-center">
+                                <Loader type="RevolvingDot" color="#E9155F" height={100} width={100} />
+                            </div>
+                        </div>
+                    )}
+                    
                     <div className="tab-content" id="pills-tabContent">
                         <div className="tab-pane fade show active" id="pills-xbox" role="tabpanel" aria-labelledby="pills-xbox-tab">
                             <div className="row justify-content-center">
-                                <div className="col-lg-3 col-sm-6">
-                                    <div className="product-item">
-                                        <div className="pi-pic">
-                                            <div className="tag-sale">Oferta</div>
-                                            <a href='/products/2'>
-                                                <img src="https://dummyimage.com/600x600/000/fff" className="img-fluid" alt="" />
-                                            </a>
-                                            <div className="pi-links">
-                                                <a href="/#" className="add-card"><span>Añadir</span><i className="fas fa-shopping-cart"></i></a>
+                                {
+                                    products.filter(({category}) => category === 'electronics')
+                                    .map(({id, title, image, price, category}) => {
+                                            return (
+                                            <div className="col-lg-3 col-sm-6" key={`product-${id}`}>
+                                                <div className="product-item">
+                                                    <div className="pi-pic">
+                                                        {category === 'electronics' ? <div className="tag-sale">Oferta</div> : ''}
+                                                        <a href='/products/2'>
+                                                            <img src={image} className="mw-100" height="300" alt="" />
+                                                        </a>
+                                                        <div className="pi-links">
+                                                            <a href="/#" className="add-card"><span>Añadir</span><i className="fas fa-shopping-cart"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div className="pi-text">
+                                                        <h6>$ {price}</h6>
+                                                        <p>{title}</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="pi-text">
-                                            <h6>$135.00</h6>
-                                            <p>Videojuego</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-3 col-sm-6">
-                                    <div className="product-item">
-                                        <div className="pi-pic">
-                                            <div className="tag-sale">Oferta</div>
-                                            <a href='/products/2'>
-                                                <img src="https://dummyimage.com/600x600/000/fff" className="img-fluid" alt="" />
-                                            </a>
-                                            <div className="pi-links">
-                                                <a href="/#" className="add-card"><span>Añadir</span><i className="fas fa-shopping-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div className="pi-text">
-                                            <h6>$135.00</h6>
-                                            <p>Videojuego</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                            )
+                                    })
+                                }
                             </div>
                         </div>
                         <div className="tab-pane fade" id="pills-ps4" role="tabpanel" aria-labelledby="pills-ps4-tab">

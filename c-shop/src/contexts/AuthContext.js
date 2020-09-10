@@ -8,20 +8,20 @@ const AuthContextProvider = (props) => {
     // const [user, setUser] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    const handleSignUp = async (values) => {
+    const handleSignUp = async (values, birthdate) => {
         console.log('handleSignUp');
         let data = {
-            'mail': values.email,
+            'username': values.email,
+            'email': values.email,
             'password': values.password,
-            'nombre': values.name,
-            'apPaterno': values.lastName,
-            'apMaterno': values.motherLastName,
-            'telefono': values.phone,
-            'trato': 'Mr.',
+            'name': values.name,
+            'lastName': values.lastName,
+            'motherLastName': values.motherLastName,
+            'phone': values.phone,
+            'birthdate': birthdate
         }
-        console.log(data);
 
-        fetch('https://odphl0sbqd.execute-api.us-east-1.amazonaws.com/default/creacuenta', {
+        fetch('https://vbrmevf9s5.execute-api.us-east-2.amazonaws.com/default/creaCuentaA01374257', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8',
@@ -31,13 +31,19 @@ const AuthContextProvider = (props) => {
             .then((res) => res.json())
             .catch((error) => console.error("Error:", error))
             .then((response) => {
-                toast('Su cuenta ha sido creada exitosamente', {
-                    className: 'success-toast',
-                    draggable: false,
-                    autoClose: 3000,
-                    progress: 0,
-                    hideProgressBar: true
-                });
+                if (response !== undefined) {
+                    if (response.success === "true") {
+                        localStorage.setItem('user', JSON.stringify(response));
+                        setIsLoggedIn(true);
+                        toast('Su cuenta ha sido creada exitosamente', {
+                            className: 'success-toast',
+                            progress: 0,
+                            hideProgressBar: true
+                        });
+                    }
+                } else {
+                    toast.error('Error en el servidor');
+                }
             });
     }
 
@@ -78,14 +84,11 @@ const AuthContextProvider = (props) => {
                     }
                 });
         } else {
-            toast.warn('Los campos están vacíos.', {
-                draggable: false,
-                autoClose: 5000,
-            });
+            toast.warn('Los campos están vacíos.');
         }
     }
 
-    const handleSignOut = (props) => {
+    const handleSignOut = () => {
         console.log('handleSignOut');
         localStorage.clear();
         setIsLoggedIn(false);

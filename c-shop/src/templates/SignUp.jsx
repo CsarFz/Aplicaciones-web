@@ -53,18 +53,20 @@ const SignUp = (props) => {
         name: '', lastName: '', motherLastName: '', phone: '',
         email: '', password: ''
     });
-    const [date, setDate] = useState(new Date());
+    const [date, setDate] = useState('');
     const [errors, setErrors] = useState({
         name: '', lastName: '', motherLastName: '', phone: '',
-        email: '', password: ''
+        email: '', password: '',
     });
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (formValid(errors, values)) {
-            handleSignUp(values);
+        if (formValid(errors, values) && date !== null && date !== '') {
+            handleSignUp(values, date);
             props.history.push('/');
+        } else if (date === null || date === '') {
+            toast.error('La fecha de nacimiento es requerida.');
         }
     };
 
@@ -105,7 +107,14 @@ const SignUp = (props) => {
         }
         setValues({ ...values, [name]: value });
         setErrors(formErrors);
-    }
+    };
+
+    const handleBirthdateChange = (date) => {
+        if (date === '' || date === null) {
+           toast.error('La fecha de nacimiento es requerida.');
+           document.getElementById('birthdate').classList.add('error');
+        }
+    };
 
     return (
         <section id="formSignUp">
@@ -155,8 +164,8 @@ const SignUp = (props) => {
                                         </div>
                                         <div className="col-12 col-md-6 px-lg-3 pb-3">
                                             <DatePicker className="w-100 px-3 form-control form-control-lg"
-                                                selected={date}
-                                                onChange={(value) => setDate(value)}
+                                                selected={date} id="birthdate"
+                                                onChange={(value) => {setDate(value); handleBirthdateChange(value)}}
                                                 dateFormat={'dd/MMMM/yyyy'}
                                                 maxDate={new Date()}
                                                 isClearable
